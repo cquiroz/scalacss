@@ -1,5 +1,6 @@
 import sbt._, Keys._
-import org.scalajs.sbtplugin.ScalaJSPlugin, ScalaJSPlugin.autoImport._
+import org.scalajs.sbtplugin.ScalaJSPlugin
+import ScalaJSPlugin.autoImport._
 import Lib._
 
 object ScalaCssBuild {
