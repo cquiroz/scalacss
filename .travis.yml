@@ -3,7 +3,7 @@ sudo: false
 
 scala:
   - 2.11.11
-  - 2.12.3
+  - 2.12.4
 
 jdk:
 - oraclejdk8
@@ -13,15 +13,6 @@ script:
 - sbt ++$TRAVIS_SCALA_VERSION test
 - sbt ++$TRAVIS_SCALA_VERSION 'set scalaJSStage in ThisBuild := FullOptStage' JS/test
 - sbt ++$TRAVIS_SCALA_VERSION cmpJsSize jsSizes
-
-
-# Use PhantomJS 2
-# https://mediocre.com/forum/topics/phantomjs-2-and-travis-ci-we-beat-our-heads-against-a-wall-so-you-dont-have-to
-install:
-  - mkdir travis-phantomjs
-  - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O "$PWD"/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
-  - tar -xvf "$PWD"/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -C "$PWD"/travis-phantomjs
-  - export PATH="$PWD/travis-phantomjs:$PATH"
 
 # Taken from https://github.com/typelevel/cats/blob/master/.travis.yml
 before_cache:
